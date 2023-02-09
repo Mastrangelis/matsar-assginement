@@ -17,8 +17,16 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./*"]
-        }
+        },
+        "types": ["jest", "node", "react", "prettier", "next"]
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "jest.setup.ts",
+        "jest.config.js",
+        "__tests__/**/*.tsx"
+    ],
     "exclude": ["node_modules"]
 }
