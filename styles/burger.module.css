@@ -1,0 +1,142 @@
+/* .bm-overlay {
+    left: 260px;
+    z-index: 1000;
+    width: 220px !important;
+    height: 812px !important;
+    bottom: 78px;
+    border-radius: var(--border-radius);
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.3s ease 0s;
+} */
+
+.menu-wrap {
+    position: absolute;
+    border-radius: var(--border-radius);
+    top: 0;
+    left: 0;
+    left: 0;
+    width: 0;
+    z-index: -1;
+    background-color: var(--primary-color);
+    transform: translateX(-5%);
+    -webkit-transform: translateX(-5%);
+}
+
+.menu-wrap--active {
+    width: 220px;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    animation: slide-in 0.3s forwards;
+    -webkit-animation: slide-in 0.3s forwards;
+}
+
+.menu-close {
+    padding: 10px 20px 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    background-color: '#fff';
+}
+
+.menu-close:hover {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.menu-icon:hover {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.menu-list {
+    flex: 1;
+    margin: 30px 0 50px 15px;
+}
+
+.menu-list > a {
+    display: inline-block;
+    position: relative;
+    padding: 5px 0 5px 0;
+    cursor: pointer;
+    letter-spacing: 0.7px;
+}
+
+.menu-list > a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.menu-list > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.menu-copyright {
+    width: 100%;
+    font-size: 12px;
+    font-weight: var(--text-regular);
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.menu-copyright > span {
+    padding-left: 2px;
+    color: var(--secondary-color);
+    text-decoration: underline;
+    font-weight: var(--text-bold);
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.94;
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slide-in {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.94;
+        transform: translateX(0%);
+    }
+}

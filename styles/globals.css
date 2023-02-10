@@ -9,9 +9,11 @@
     --text-bold: 700;
 
     /* Colors */
+    --screen-bg: #fcfcff;
     --primary-color: #17a030;
     --secondary-color: #1b153d;
     --accent2-color: #9095a6;
+    --footer-indicator: rgba(52, 64, 84, 0.85);
 }
 
 * {
@@ -30,4 +32,20 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+.layout {
+    height: 100vh;
+    background-color: lavender;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background-color: var(--screen-bg);
+    border-radius: var(--border-radius);
 }

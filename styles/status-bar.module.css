@@ -1,0 +1,32 @@
+.status-bar {
+    width: inherit;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 0 21px;
+}
+
+.status-bar__time {
+    flex: 1;
+    height: 21px;
+}
+
+.status-bar__time > span {
+    font-weight: 500;
+    font-size: 14;
+    height: 21px;
+    line-height: 16.71px;
+    letter-spacing: -0.24px;
+}
+
+.status-bar__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status-bar__icons > img {
+    margin: 0 2px 0 2px;
+}
