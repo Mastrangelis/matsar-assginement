@@ -4,26 +4,30 @@ import Image from '../Image';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
-const Menu = () => {
-    const [showMenu, setShowMenu] = useState<boolean>(false);
+type MenuProps = {
+    setIsMenuIcon: CallableFunction;
+    isMenuIcon: boolean;
+};
+
+const Menu = ({ isMenuIcon, setIsMenuIcon }: MenuProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const router = useRouter();
 
     useEffect(() => {
-        if (router.pathname !== '/search-results' && showMenu) {
-            setShowMenu(false);
+        if (router.pathname !== '/search-results' && isMenuIcon) {
+            setIsMenuIcon(false);
         }
-        if (router.pathname === '/search-results' && !showMenu) {
-            setShowMenu(true);
+        if (router.pathname === '/search-results' && !isMenuIcon) {
+            setIsMenuIcon(true);
         }
-    }, [router.pathname, showMenu]);
+    }, [router.pathname, setIsMenuIcon, isMenuIcon]);
 
     const handleClick = () => setIsOpen((prev: boolean) => !prev);
 
     return (
         <>
-            {showMenu && (
+            {isMenuIcon && (
                 <div className={styles['menu-icon']} onClick={handleClick}>
                     <Image
                         src="/Menu.svg"

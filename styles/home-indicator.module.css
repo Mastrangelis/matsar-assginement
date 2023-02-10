@@ -4,6 +4,8 @@
     height: 34px;
     bottom: 0;
     cursor: pointer;
+    background-color: inherit;
+    border-radius: var(--border-radius);
 }
 
 .home-indicator__container {

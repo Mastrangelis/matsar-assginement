@@ -3,8 +3,21 @@ import Head from 'next/head';
 import { Layout } from '@/components';
 
 import '@/styles/globals.css';
+import { SearchContextProvider } from '@/context/SearchContext';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
+    // This was needed due to hydration errors
+    // caused with the use of localstorage for recent searches
+    const [renderApp, setRenderApp] = useState<boolean>(false);
+
+    useEffect(() => {
+        setRenderApp(true);
+    }, []);
+
+    if (!renderApp) return null;
+
     return (
         <>
             <Head>
@@ -16,9 +29,11 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="icon" href="/favicon.png" />
             </Head>
 
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+            <SearchContextProvider>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </SearchContextProvider>
         </>
     );
 }

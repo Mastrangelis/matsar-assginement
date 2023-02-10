@@ -34,6 +34,61 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: -0.24px;
+}
+
+h3 {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.24px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    padding: 10px;
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.textAccent {
+    color: var(--accent2-color);
+}
+
+.container {
+    background-color: var(--screen-bg);
+    padding: 0 20px 0 20px;
+}
+
+.headline-container {
+    display: flex;
+    align-items: center;
+}
+
+.headline-wrapper {
+    width: 296px;
+}
+
 .layout {
     height: 100vh;
     background-color: lavender;
@@ -46,6 +101,6 @@ a {
     position: relative;
     width: 375px;
     height: 812px;
-    background-color: var(--screen-bg);
+    background: var(--screen-bg);
     border-radius: var(--border-radius);
 }

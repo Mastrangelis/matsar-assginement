@@ -1,7 +1,20 @@
-import { Screen } from 'components';
+import { Dropdown, Screen } from 'components';
 
 const SearchSuggestions = () => {
-    return <Screen></Screen>;
+    const onSearchClick = (search: string) => {
+        console.log(search);
+    };
+
+    return (
+        <Screen>
+            <Dropdown
+                header="Popular Searches"
+                hasClear={false}
+                searches={['Coca cola', 'Coca Cola Zero']}
+                onIconClick={onSearchClick}
+            />
+        </Screen>
+    );
 };
 
 export default SearchSuggestions;
