@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, {
     createContext,
     ReactNode,
@@ -28,6 +29,8 @@ export const SearchContextProvider = ({
 }: SearchContextProviderProps) => {
     const [isEditingStorage, setIsEditingStorage] = useState<boolean>(false);
 
+    const router = useRouter();
+
     useEffect(() => {
         if (isEditingStorage) setIsEditingStorage(false);
     }, [isEditingStorage]);
@@ -41,6 +44,18 @@ export const SearchContextProvider = ({
 
     const addSearch = useCallback(
         (search: string) => {
+            router.push(
+                {
+                    pathname: router.pathname,
+                    query: {
+                        q: search
+                    }
+                },
+                undefined,
+                {
+                    shallow: true
+                }
+            );
             setIsEditingStorage(true);
             const storedSearches = getRecentSearches();
             if (!storedSearches.includes(search)) {
@@ -50,7 +65,7 @@ export const SearchContextProvider = ({
                 );
             }
         },
-        [getRecentSearches]
+        [getRecentSearches, router]
     );
 
     const removeSearch = useCallback(

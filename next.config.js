@@ -13,6 +13,14 @@ const nextConfig = {
                 permanent: true
             }
         ];
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination: 'https://api.matspar.se/:path*'
+            }
+        ];
     }
 };
 
