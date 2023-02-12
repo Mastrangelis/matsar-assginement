@@ -1,0 +1,67 @@
+/* Screen */
+.screen {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: var(--screen-bg);
+    border-radius: var(--border-radius);
+}
+
+/* Status bar */
+.status__bar {
+    width: inherit;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 0 21px;
+}
+
+.status__barTime {
+    flex: 1;
+    height: 21px;
+}
+
+.status__barTime > span {
+    font-weight: 500;
+    font-size: 14;
+    height: 21px;
+    line-height: 16.71px;
+    letter-spacing: -0.24px;
+}
+
+.status__barIcons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status__barIcons > img {
+    margin: 0 2px 0 2px;
+}
+
+/* Home Indicator */
+.home__indicator {
+    position: absolute;
+    width: inherit;
+    height: 34px;
+    bottom: 0;
+    cursor: pointer;
+    background-color: inherit;
+    border-radius: var(--border-radius);
+}
+
+.home__indicatorContainer {
+    position: absolute;
+    inset: 0;
+}
+
+.home__indicatorIndicator {
+    position: absolute;
+    left: 32.27%;
+    right: 32%;
+    top: 55.88%;
+    bottom: 29.41%;
+    border-radius: 2.5px;
+    background: var(--footer-indicator);
+}

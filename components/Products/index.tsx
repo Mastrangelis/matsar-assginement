@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import styles from '@/styles/products.module.css';
 import Product from './Product';
 
@@ -13,7 +14,7 @@ type IProducts = {
     products: IProduct[];
 };
 
-const Products = ({ products = [] }: IProducts) => {
+const Products = ({ products = [] }: IProducts): ReactElement => {
     return (
         <div className={styles.products}>
             {products?.map((product: IProduct) => (

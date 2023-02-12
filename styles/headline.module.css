@@ -1,0 +1,12 @@
+.headline {
+    display: flex;
+    align-items: center;
+}
+
+.headline__container {
+    width: 296px;
+}
+
+.headline__container h1 {
+    color: var(--secondary-color);
+}

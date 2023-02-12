@@ -1,14 +1,14 @@
+import { ReactElement, ChangeEvent, SyntheticEvent, useState } from 'react';
+import { useSearchContext } from '@/context/SearchContext';
 import styles from '@/styles/navbar.module.css';
 import clsx from 'clsx';
 import Image from '../Image';
-import { useSearchContext } from '@/context/SearchContext';
-import { ChangeEvent, SyntheticEvent, useState } from 'react';
 
 type SearchProps = {
     isMenuIcon: boolean;
 };
 
-const Search = ({ isMenuIcon }: SearchProps) => {
+const Search = ({ isMenuIcon }: SearchProps): ReactElement => {
     const { addSearch } = useSearchContext();
 
     const [searchTerm, setSearchTerm] = useState<string>('');
@@ -26,9 +26,10 @@ const Search = ({ isMenuIcon }: SearchProps) => {
         <div
             className={clsx({
                 [styles.navbar__search]: true,
-                [styles['navbar__search--full']]: !isMenuIcon
+                [styles.navbar__searchFull]: !isMenuIcon
             })}
         >
+            {/* Search Icon */}
             <div onClick={handleSearchSubmit} style={{ cursor: 'pointer' }}>
                 <Image
                     src="/Search.svg"
@@ -38,6 +39,7 @@ const Search = ({ isMenuIcon }: SearchProps) => {
                 />
             </div>
 
+            {/* Form input */}
             <form onSubmit={handleSearchSubmit}>
                 <input
                     type="search"

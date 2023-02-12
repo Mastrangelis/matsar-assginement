@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
+import styles from '@/styles/screen.module.css';
 import HomeIndicator from './HomeIndicator';
-import NavBar from './Navbar';
+import NavBar from '../Navbar';
 import StatusBar from './StatusBar';
-import Container from './Container';
+import Container from '../Layout/Container';
 
 type ScreenProps = {
     children?: ReactNode;
@@ -10,7 +11,7 @@ type ScreenProps = {
 
 const Screen = ({ children }: ScreenProps) => {
     return (
-        <div className="screen">
+        <div className={styles.screen}>
             <StatusBar />
             <Container>
                 <NavBar />

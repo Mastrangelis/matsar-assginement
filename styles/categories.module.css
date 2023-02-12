@@ -1,10 +1,10 @@
-.categoriesContainer {
+.categories {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
 
-.categories {
+.categories__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,11 +28,11 @@
     opacity: 0.85;
 }
 
-.categoryActive {
+.category__active {
     color: var(--primary-color);
 }
 
-.categoriesLine {
+.categories__line {
     width: 38px;
     border-bottom: 1.5px solid var(--primary-color);
 }

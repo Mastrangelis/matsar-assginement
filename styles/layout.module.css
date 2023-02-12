@@ -1,0 +1,14 @@
+/* Layout */
+.layout {
+    height: 100vh;
+    background-color: lavender;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container */
+.container {
+    background-color: var(--screen-bg);
+    padding: 0 20px 0 20px;
+}

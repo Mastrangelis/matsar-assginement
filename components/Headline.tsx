@@ -1,10 +1,10 @@
+import styles from '@/styles/headline.module.css';
+
 const Headline = () => {
     return (
-        <div className="headline-container">
-            <div className="headline-wrapper">
-                <h1 className="text-secondary">
-                    Find your favorite products now.
-                </h1>
+        <div className={styles.headline}>
+            <div className={styles.headline__container}>
+                <h1>Find your favorite products now.</h1>
             </div>
         </div>
     );
