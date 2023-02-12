@@ -29,11 +29,13 @@ body {
     font-family: var(--text-font);
 }
 
+/* Links */
 a {
     color: inherit;
     text-decoration: none;
 }
 
+/* Typography */
 h1 {
     font-family: 'Raleway';
     font-style: normal;
@@ -52,6 +54,7 @@ h3 {
     letter-spacing: -0.24px;
 }
 
+/* Scrollbar styling */
 ::-webkit-scrollbar {
     width: 4px;
 }
@@ -65,42 +68,4 @@ h3 {
     padding: 10px;
     background: var(--primary-color);
     border-radius: 5px;
-}
-
-.text-secondary {
-    color: var(--secondary-color);
-}
-
-.textAccent {
-    color: var(--accent2-color);
-}
-
-.container {
-    background-color: var(--screen-bg);
-    padding: 0 20px 0 20px;
-}
-
-.headline-container {
-    display: flex;
-    align-items: center;
-}
-
-.headline-wrapper {
-    width: 296px;
-}
-
-.layout {
-    height: 100vh;
-    background-color: lavender;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.screen {
-    position: relative;
-    width: 375px;
-    height: 812px;
-    background: var(--screen-bg);
-    border-radius: var(--border-radius);
 }

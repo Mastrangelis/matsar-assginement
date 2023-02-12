@@ -1,7 +1,6 @@
+import { useEffect, useState } from 'react';
 import { useSearchContext } from '@/context/SearchContext';
 import { Dropdown, Screen } from 'components';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 const RecentSearches = () => {
     const [searches, setSearches] = useState<string[]>([]);

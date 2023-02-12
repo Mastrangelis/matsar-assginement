@@ -1,18 +1,19 @@
-import styles from '@/styles/burger.module.css';
-import { useEffect, useState } from 'react';
-import Image from '../Image';
+import React, { ReactElement, useEffect, useState } from 'react';
+import { NextRouter, useRouter } from 'next/router';
+import { Page, pages } from '@/constants/pages';
+import styles from '@/styles/navbar.module.css';
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
+import Image from '../Image';
 
 type MenuProps = {
     setIsMenuIcon: CallableFunction;
     isMenuIcon: boolean;
 };
 
-const Menu = ({ isMenuIcon, setIsMenuIcon }: MenuProps) => {
+const Menu = ({ isMenuIcon, setIsMenuIcon }: MenuProps): ReactElement => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const router = useRouter();
+    const router: NextRouter = useRouter();
 
     useEffect(() => {
         if (router.pathname !== '/search-results' && isMenuIcon) {
@@ -25,47 +26,60 @@ const Menu = ({ isMenuIcon, setIsMenuIcon }: MenuProps) => {
 
     const handleClick = () => setIsOpen((prev: boolean) => !prev);
 
+    function MenuOpenIcon() {
+        return (
+            <div className={styles.menu__icon} onClick={handleClick}>
+                <Image
+                    src="/Menu.svg"
+                    alt="Menu icon burger"
+                    width={24}
+                    height={24}
+                />
+            </div>
+        );
+    }
+
+    function MenuCloseIcon() {
+        return (
+            <div className={styles.menu__close} onClick={handleClick}>
+                <Image src="/Close.svg" alt="Close" width={24} height={24} />
+            </div>
+        );
+    }
+
+    function MenuList() {
+        return (
+            <div className={styles.menu__list}>
+                {pages?.map((page: Page) => (
+                    <React.Fragment key={page.url}>
+                        <a onClick={() => router.push(page.url)}>
+                            {page.label}
+                        </a>
+                    </React.Fragment>
+                ))}
+            </div>
+        );
+    }
+
+    function MenuListCopyRight() {
+        return (
+            <div className={styles.menu__copyright}>
+                @All rights reserved <span>MatSpar</span>
+            </div>
+        );
+    }
     return (
         <>
-            {isMenuIcon && (
-                <div className={styles['menu-icon']} onClick={handleClick}>
-                    <Image
-                        src="/Menu.svg"
-                        alt="Menu-icon"
-                        width={24}
-                        height={24}
-                    />
-                </div>
-            )}
+            {isMenuIcon && <MenuOpenIcon />}
             <div
                 className={clsx({
-                    [styles['menu-wrap']]: true,
-                    [styles['menu-wrap--active']]: isOpen
+                    [styles.menu__wrap]: true,
+                    [styles.menu__wrapActive]: isOpen
                 })}
             >
-                <div className={styles['menu-close']} onClick={handleClick}>
-                    <Image
-                        src="/Close.svg"
-                        alt="Close"
-                        width={24}
-                        height={24}
-                    />
-                </div>
-
-                <div className={styles['menu-list']}>
-                    <a onClick={() => router.push('/search-results')}>
-                        Search Results
-                    </a>
-                    <a onClick={() => router.push('/search-suggestions')}>
-                        Search Suggestions
-                    </a>
-                    <a onClick={() => router.push('/recent-searches')}>
-                        Recent Searches
-                    </a>
-                </div>
-                <div className={styles['menu-copyright']}>
-                    @All rights reserved <span>MatSpar</span>
-                </div>
+                <MenuCloseIcon />
+                <MenuList />
+                <MenuListCopyRight />
             </div>
         </>
     );
