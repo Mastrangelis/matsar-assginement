@@ -7,6 +7,7 @@ import Categories from './Categories';
 import Products from './Products';
 import Dropdown from './Dropdown';
 import Layout from './Layout';
+import Spinner from './Spinner';
 
 export {
     Layout,
@@ -17,5 +18,6 @@ export {
     Container,
     Categories,
     Products,
-    Dropdown
+    Dropdown,
+    Spinner
 };

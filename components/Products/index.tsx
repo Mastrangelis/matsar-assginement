@@ -11,14 +11,19 @@ export type IProduct = {
 };
 
 type IProducts = {
+    isLoading: boolean;
     products: IProduct[];
 };
 
-const Products = ({ products = [] }: IProducts): ReactElement => {
+const Products = ({ isLoading, products = [] }: IProducts): ReactElement => {
     return (
         <div className={styles.products}>
             {products?.map((product: IProduct) => (
-                <Product key={product.id} product={product} />
+                <Product
+                    key={product.id}
+                    product={product}
+                    isLoading={isLoading}
+                />
             ))}
         </div>
     );

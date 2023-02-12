@@ -5,26 +5,48 @@ import { Categories, Headline, Products, Screen } from 'components';
 import { useRouter } from 'next/router';
 import { QueryClient, dehydrate } from 'react-query';
 import { withCSR } from '@/Hoc/with-CSR';
+import { useMemo, useState } from 'react';
+import { useEffect } from 'react';
 
 type SearchResultsProps = {
     isError: boolean;
 };
 const SearchResults = ({ isError }: SearchResultsProps) => {
+    const [isCustomLoading, setIsCustomLoadig] = useState<boolean>(false);
+
     const {
         query: { q }
     } = useRouter();
 
     const { data, isLoading } = useProductSearch(q as string);
 
-    if (isError) return <div>Error</div>;
+    const products = useMemo(() => {
+        if (isCustomLoading || !data?.payload?.products?.length)
+            return new Array(10).fill({
+                image: '',
+                price: '',
+                brand: '',
+                name: ''
+            });
+        return data?.payload?.products;
+    }, [data, isCustomLoading]);
 
-    if (isLoading) return <div>Loading</div>;
+    useEffect(() => {
+        if (isLoading) {
+            setIsCustomLoadig(true);
+        }
+        if (!isLoading) {
+            setTimeout(() => setIsCustomLoadig(false), 2500);
+        }
+    }, [isLoading]);
+
+    if (isError) return <div>Error</div>;
 
     return (
         <Screen>
             <Headline />
             <Categories />
-            <Products products={data?.payload?.products} />
+            <Products products={products} isLoading={isCustomLoading} />
         </Screen>
     );
 };

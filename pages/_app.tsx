@@ -4,6 +4,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Layout } from '@/components';
 import { SearchContextProvider } from '@/context/SearchContext';
+import { SkeletonWrapper } from '@/components/Skeleton';
+import { AnimatePresence } from 'framer-motion';
 
 import '@/styles/globals.css';
 
@@ -36,9 +38,13 @@ export default function App({ Component, pageProps }: AppProps) {
                 {/* Hydrate query cache */}
                 <Hydrate state={pageProps.dehydratedState}>
                     <SearchContextProvider>
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
+                        <AnimatePresence mode="wait">
+                            <SkeletonWrapper>
+                                <Layout>
+                                    <Component {...pageProps} />
+                                </Layout>
+                            </SkeletonWrapper>
+                        </AnimatePresence>
                     </SearchContextProvider>
                 </Hydrate>
             </QueryClientProvider>
