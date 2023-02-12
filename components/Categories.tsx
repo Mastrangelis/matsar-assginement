@@ -8,7 +8,10 @@ const Categories = () => {
 
     return (
         <div className={styles.categories}>
-            <div className={styles.categories__container}>
+            <div
+                data-testid="categories"
+                className={styles.categories__container}
+            >
                 {categories?.map((category: string, index: number) => (
                     <div
                         key={index}
