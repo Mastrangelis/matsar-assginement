@@ -13,7 +13,10 @@ const customJestConfig = {
         '**/*.{js,jsx,ts,tsx}',
         '!**/*.d.ts',
         '!**/node_modules/**'
-    ]
+    ],
+    moduleNameMapper: {
+        '@/(.*)$': '<rootDir>/$1'
+    }
 };
 
 module.exports = createJestConfig(customJestConfig);

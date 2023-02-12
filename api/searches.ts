@@ -11,7 +11,7 @@ const productSearch = async (q: string) => {
 };
 
 const getSuggestedSearches = async (q: string) => {
-    const { data } = await axiosInstance.get(`/api/autocomplete/query=${q}`);
+    const { data } = await axiosInstance.get(`/api/autocomplete?query=${q}`);
     return data;
 };
 
