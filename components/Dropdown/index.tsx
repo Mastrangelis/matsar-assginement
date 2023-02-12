@@ -55,7 +55,7 @@ const Dropdown = ({
     }, [hovered]);
 
     return (
-        <div className={styles.dropdown}>
+        <div data-testid="dropdown" className={styles.dropdown}>
             <DropdownHeader hasClear={hasClear} header={header} />
             <DropdownLine />
             <DropdownList

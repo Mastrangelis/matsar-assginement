@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import SearchResults from '../../pages/search-results';
 import mockRouter from 'next-router-mock';
 import { categories } from '@/constants/categories';
+import SearchResults from '@/pages/search-results';
 
 // Mock queryClient and nextRouter
 jest.mock('next/router', () => require('next-router-mock'));
@@ -12,9 +12,7 @@ jest.mock('react-query', () => ({
 }));
 
 describe('Search-results Page scenario', () => {
-    beforeAll(() => {
-        mockRouter.push('/search-results');
-    });
+    beforeAll(() => mockRouter.push('/search-results'));
 
     it('Should render search-results page successfully', () => {
         render(<SearchResults isError={false} />);
