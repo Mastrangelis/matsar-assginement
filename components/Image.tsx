@@ -5,6 +5,7 @@ type ImageProps = {
     alt: string;
     width?: number;
     height?: number;
+    fill?: boolean;
 };
 const Image = ({ src, alt, width = 22, height = 22 }: ImageProps) => {
     return (
@@ -14,6 +15,7 @@ const Image = ({ src, alt, width = 22, height = 22 }: ImageProps) => {
             height={height}
             width={width}
             quality={100}
+            style={{ objectFit: 'contain' }}
         />
     );
 };
