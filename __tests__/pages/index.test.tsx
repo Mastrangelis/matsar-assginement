@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import Home from '../../pages';
+import SearchResults from '@/pages/search-results';
 
 it('Should display Home Page', () => {
-    render(<Home />);
-    expect(screen.getByRole('heading', { name: /learn/i })).toBeInTheDocument();
+    render(<SearchResults />);
+    expect(screen.getByRole('heading', { name: /find/i })).toBeInTheDocument();
 });
