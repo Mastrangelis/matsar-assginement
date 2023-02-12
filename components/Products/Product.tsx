@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { useEffect, ReactElement, useState } from 'react';
 import { getProductImage } from '@/utils/product';
 import styles from '@/styles/products.module.css';
 import { IProduct } from '.';
@@ -12,6 +12,13 @@ type ProductProps = {
 
 const Product = ({ product, isLoading }: ProductProps): ReactElement => {
     function ProductImage() {
+        const [imgSrc, setImgSrc] = useState<string | null>('');
+
+        useEffect(() => {
+            const src = getProductImage(product?.image);
+            setImgSrc(src);
+        }, []);
+
         return (
             <div className={styles.product__image}>
                 <LoadingComponent
@@ -20,10 +27,10 @@ const Product = ({ product, isLoading }: ProductProps): ReactElement => {
                     height={101}
                 >
                     <Image
-                        src={getProductImage(product.image) ?? ''}
+                        src={imgSrc || '/no-photo.svg'}
                         alt="Product"
-                        width={28}
-                        height={98}
+                        width={141}
+                        height={101}
                     />
                 </LoadingComponent>
             </div>
