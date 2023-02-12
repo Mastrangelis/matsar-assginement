@@ -11,13 +11,15 @@ type DropdownProps = {
     searches: string[];
     onIconClick: (search: string) => void;
     hasClear?: boolean;
+    isLoading?: boolean;
 };
 
 const Dropdown = ({
     header,
     hasClear = false,
     searches = [],
-    onIconClick
+    onIconClick,
+    isLoading
 }: DropdownProps) => {
     const [cursor, setCursor] = useState<number>(-1);
     const [hovered, setHovered] = useState<string>('');
@@ -64,6 +66,7 @@ const Dropdown = ({
                 onIconClick={onIconClick}
                 setCursor={setCursor}
                 setHovered={setHovered}
+                isLoading={isLoading}
             />
         </div>
     );

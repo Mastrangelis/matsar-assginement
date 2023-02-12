@@ -1,5 +1,5 @@
 import styles from '@/styles/dropdown.module.css';
-import { Image } from '@/components';
+import { Image, Spinner } from '@/components';
 import clsx from 'clsx';
 import { ReactElement } from 'react';
 import NoResults from './NoResults';
@@ -12,6 +12,7 @@ type DropdownListProps = {
     setHovered: CallableFunction;
     onIconClick: CallableFunction;
     hasClear?: boolean;
+    isLoading?: boolean;
 };
 
 type ListItemProps = {
@@ -26,7 +27,8 @@ const DropdownList = ({
     setCursor,
     setHovered,
     onIconClick,
-    hasClear
+    hasClear,
+    isLoading
 }: DropdownListProps) => {
     function ListItem({ search, index }: ListItemProps): ReactElement {
         return (
@@ -59,7 +61,11 @@ const DropdownList = ({
             className={styles.dropdown__list}
             onMouseLeave={() => setCursor(-1)}
         >
-            {searches?.length ? (
+            {isLoading ? (
+                <div className={styles.dropdown__spinner}>
+                    <Spinner color="accent" />
+                </div>
+            ) : searches?.length ? (
                 searches?.map((search: string, index: number) => (
                     <ListItem key={index} search={search} index={index} />
                 ))

@@ -36,7 +36,7 @@ const SearchResults = ({ isError }: SearchResultsProps) => {
             setIsCustomLoadig(true);
         }
         if (!isLoading) {
-            setTimeout(() => setIsCustomLoadig(false), 1000);
+            setTimeout(() => setIsCustomLoadig(false), 2500);
         }
     }, [isLoading]);
 

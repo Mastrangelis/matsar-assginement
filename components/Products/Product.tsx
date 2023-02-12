@@ -18,7 +18,6 @@ const Product = ({ product, isLoading }: ProductProps): ReactElement => {
                     isLoading={isLoading}
                     width={141}
                     height={101}
-                    isCentered
                 >
                     <Image
                         src={getProductImage(product.image) ?? ''}
@@ -39,7 +38,6 @@ const Product = ({ product, isLoading }: ProductProps): ReactElement => {
                         isLoading={isLoading}
                         width={120}
                         height={20}
-                        left
                     >
                         <h3>{product.name}</h3>
                     </LoadingComponent>
@@ -50,7 +48,6 @@ const Product = ({ product, isLoading }: ProductProps): ReactElement => {
                         isLoading={isLoading}
                         width={52}
                         height={14}
-                        left
                     >
                         {product.brand}
                     </LoadingComponent>
@@ -61,7 +58,6 @@ const Product = ({ product, isLoading }: ProductProps): ReactElement => {
                         isLoading={isLoading}
                         width={38}
                         height={20}
-                        left
                     >
                         {`$${product.price}`}
                     </LoadingComponent>

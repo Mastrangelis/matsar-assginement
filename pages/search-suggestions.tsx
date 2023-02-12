@@ -3,8 +3,8 @@ import { withCSR } from '@/Hoc/with-CSR';
 import { getSuggestedSearches } from '@/api/searches';
 import { useSuggestedSearches } from '@/hooks/api';
 import { Dropdown, Screen } from 'components';
-import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import { NextRouter, useRouter } from 'next/router';
+import { useEffect, useMemo, useState } from 'react';
 import { QueryClient, dehydrate } from 'react-query';
 
 type SearchSuggestionsProps = {
@@ -16,7 +16,9 @@ type SuggestionProps = {
 };
 
 const SearchSuggestions = ({ isError }: SearchSuggestionsProps) => {
-    const router = useRouter();
+    const [isCustomLoading, setIsCustomLoadig] = useState<boolean>(false);
+
+    const router: NextRouter = useRouter();
 
     const {
         query: { q }
@@ -40,15 +42,22 @@ const SearchSuggestions = ({ isError }: SearchSuggestionsProps) => {
     };
 
     const suggestions: string[] = useMemo(() => {
-        if (!data?.suggestions?.length) return [];
+        if (isCustomLoading || !data?.suggestions?.length) return [];
         return data.suggestions.map(
             (suggestion: SuggestionProps) => suggestion.text
         );
-    }, [data?.suggestions]);
+    }, [data?.suggestions, isCustomLoading]);
+
+    useEffect(() => {
+        if (isLoading) {
+            setIsCustomLoadig(true);
+        }
+        if (!isLoading) {
+            setTimeout(() => setIsCustomLoadig(false), 2500);
+        }
+    }, [isLoading]);
 
     if (isError) return <div>Error</div>;
-
-    if (isLoading) return <div>Loading</div>;
 
     return (
         <Screen>
@@ -57,6 +66,7 @@ const SearchSuggestions = ({ isError }: SearchSuggestionsProps) => {
                 hasClear={false}
                 searches={suggestions}
                 onIconClick={onSearchClick}
+                isLoading={isCustomLoading}
             />
         </Screen>
     );
