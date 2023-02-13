@@ -2,7 +2,7 @@
 
 ## Deployment link from Vercel
 
-The application is deployed on vercel. You can visit it though this [link](https://matsar-assginement-zbfj-git-deployment-mastrangelis.vercel.app/search-results)
+The application is deployed on vercel. You can visit it though this [link](https://matsar-assginement-zbfj-git-main-mastrangelis.vercel.app/search-results)
 
 ## Technologies and Modules
 
@@ -18,6 +18,7 @@ For the project the following technologies and libraries are used
 - Framer motion for beautiful and smooth transitions
 - React skeleton loading
 - Custom components, hooks, context
+- SSR (Server-Side-Rendering)
 - Functional and Unit testing with Jest/RTL
 - Component Testing with storybook (manual testing)
 - Dockerfile for containerizing the application
@@ -99,3 +100,31 @@ You can run all the unit and functional tests written by executing the command
 ### `npm run jest`
 
 This will run all the tests under the ****tests**** directory and it will collect coverage and html reports into the **reports** folder.
+
+## Assignement Details
+
+ 1. All pages (all 3) have been implemented
+ 2. Navigation has been implemented
+ 3. Search component is shared accros the pages
+ 3. Search terms are stored in localstorage so every search from either page can be seen in recent searches
+ 4. Functionality for selecting with arrows and sumbmitting with enter from recent searches screen has been done.
+ 5. In search results page (page 1) every submitted term in the search form invokes the skeleton loading until the response from the server comes back
+ 6. In the search-suggestions page (page 3) instead of skeleton-loading we use a spinner while we wait for response from server
+
+## Application Screenshots
+
+### Mobile View
+![Screenshot 2023-02-13 at 2 25 43 PM](https://user-images.githubusercontent.com/48323010/218458019-b92ecf37-8a2b-4983-8e2a-c379b35322c5.png)
+![Screenshot 2023-02-13 at 2 25 57 PM](https://user-images.githubusercontent.com/48323010/218458032-b1f95a9d-93c1-4544-8a02-845fe31d6a4d.png)
+![Screenshot 2023-02-13 at 2 26 03 PM](https://user-images.githubusercontent.com/48323010/218458039-3d448bdb-1c81-4838-ad08-882019d7120e.png)
+![Screenshot 2023-02-13 at 2 26 11 PM](https://user-images.githubusercontent.com/48323010/218458044-2f4901a4-af6a-49e2-9f3e-e6ae91b0f93e.png)
+![Screenshot 2023-02-13 at 2 26 25 PM](https://user-images.githubusercontent.com/48323010/218458051-0fe9a762-c81f-4f4b-b269-f47fb1bd5f43.png)
+![Screenshot 2023-02-13 at 2 26 30 PM](https://user-images.githubusercontent.com/48323010/218458055-233cff21-acfe-41df-8df1-7ef7383f447f.png)
+![Screenshot 2023-02-13 at 2 26 41 PM](https://user-images.githubusercontent.com/48323010/218458062-94c597be-1e6e-47c7-b44d-0dfbd8c4a4c2.png)
+![Screenshot 2023-02-13 at 2 26 45 PM](https://user-images.githubusercontent.com/48323010/218458066-755c7d60-b2be-4f31-a8ce-adbf11fd3882.png)
+![Screenshot 2023-02-13 at 2 26 58 PM](https://user-images.githubusercontent.com/48323010/218458069-73e17f64-3857-488e-96e9-cd418ff70223.png)
+
+### Web View
+![Screenshot 2023-02-13 at 2 28 35 PM](https://user-images.githubusercontent.com/48323010/218458077-064191cf-1266-457c-bb40-8c785772500b.png)
+![Screenshot 2023-02-13 at 2 28 40 PM](https://user-images.githubusercontent.com/48323010/218458345-579afafb-5f72-4e35-9a11-abc75f47af2f.png)
+![Screenshot 2023-02-13 at 2 28 48 PM](https://user-images.githubusercontent.com/48323010/218458354-e51695d0-17dc-4683-a103-553f812c7ceb.png)
