@@ -7,7 +7,7 @@ import axiosInstance from './axios';
  * @returns {object} the data returned from the server
  */
 const productSearch = async (q: string) => {
-    const { data } = await axiosInstance.post('/api/slug/', {
+    const { data } = await axiosInstance.post('/slug/', {
         slug: '/kategori',
         query: {
             q
@@ -23,7 +23,7 @@ const productSearch = async (q: string) => {
  * @returns {object} the data returned from the server
  */
 const getSuggestedSearches = async (q: string) => {
-    const { data } = await axiosInstance.get(`/api/autocomplete?query=${q}`);
+    const { data } = await axiosInstance.get(`/autocomplete?query=${q}`);
     return data;
 };
 
