@@ -11,6 +11,7 @@ type SpinnerProps = {
 export default function Spinner({ color = 'primary' }: SpinnerProps) {
     return (
         <div
+            data-testid="spinner"
             className={clsx({
                 [styles.spinner]: true,
                 [styles.spinner__primary]: color === 'primary',

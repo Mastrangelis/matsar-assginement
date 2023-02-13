@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import mockRouter from 'next-router-mock';
 import RecentSearches from '@/pages/recent-searches';
 import { SearchContextProvider } from '@/context/SearchContext';
+import { fireEvent } from '@testing-library/react';
 
 // Mock queryClient and nextRouter
 jest.mock('next/router', () => require('next-router-mock'));
@@ -74,6 +75,99 @@ describe('Recent Searches Page scenario', () => {
 
         const dropdownList = screen.getByTestId('dropdown-list');
         expect(dropdownList).toBeInTheDocument();
+        expect(dropdownList.children.length).toBe(1);
+        expect(dropdownList.firstElementChild).toHaveClass(
+            'noResults__wrapper'
+        );
+        expect(dropdownList.firstElementChild?.firstChild?.textContent).toBe(
+            'No searches found.'
+        );
+    });
+
+    it('Should render recent-searches page and be able to search by typing "fanta" in search input and submitting form', async () => {
+        render(
+            <SearchContextProvider>
+                <RecentSearches />
+            </SearchContextProvider>
+        );
+
+        const search = screen.getByTestId('search');
+        expect(search).toBeInTheDocument();
+        expect(search.children.length).toBe(2);
+
+        const input = screen.getByPlaceholderText('Search Product');
+        fireEvent.change(input, { target: { value: 'fanta' } });
+
+        const form = screen.getByRole('form');
+        fireEvent.submit(form);
+
+        const dropdownList = screen.getByTestId('dropdown-list');
+        expect(dropdownList).toBeInTheDocument();
+        expect(dropdownList.children.length).toBe(1);
+
+        expect(dropdownList.firstChild?.textContent).toBe('fanta');
+    });
+
+    it('Should render recent-searches page and be able to type "sprite" as new term and then clear it by clicking clear icon', async () => {
+        render(
+            <SearchContextProvider>
+                <RecentSearches />
+            </SearchContextProvider>
+        );
+
+        const search = screen.getByTestId('search');
+        expect(search).toBeInTheDocument();
+        expect(search.children.length).toBe(2);
+
+        const input = screen.getByPlaceholderText('Search Product');
+        fireEvent.change(input, { target: { value: 'sprite' } });
+
+        const form = screen.getByRole('form');
+        fireEvent.submit(form);
+
+        const dropdownList = screen.getByTestId('dropdown-list');
+        expect(dropdownList).toBeInTheDocument();
+        expect(dropdownList.firstChild?.textContent).toBe('fanta');
+
+        expect(dropdownList.children.length).toBe(2);
+
+        const spriteElement = dropdownList.children[1];
+        expect(spriteElement.textContent).toBe('sprite');
+        fireEvent.click(spriteElement.children[1]);
+
+        expect(dropdownList.children.length).toBe(1);
+    });
+
+    it('Should render recent-searches page and be able remove all terms by clicking "Clear All" button', async () => {
+        render(
+            <SearchContextProvider>
+                <RecentSearches />
+            </SearchContextProvider>
+        );
+
+        const search = screen.getByTestId('search');
+        expect(search).toBeInTheDocument();
+        expect(search.children.length).toBe(2);
+
+        const input = screen.getByPlaceholderText('Search Product');
+        fireEvent.change(input, { target: { value: 'coca cola' } });
+
+        const form = screen.getByRole('form');
+        fireEvent.submit(form);
+
+        const dropdownList = screen.getByTestId('dropdown-list');
+        expect(dropdownList).toBeInTheDocument();
+        expect(dropdownList.firstChild?.textContent).toBe('fanta');
+        expect(dropdownList.lastChild?.textContent).toBe('coca cola');
+        expect(dropdownList.children.length).toBe(2);
+
+        const dropdownHeader = screen.getByTestId('dropdown-header');
+        expect(dropdownHeader).toBeInTheDocument();
+        expect(dropdownHeader.firstChild?.textContent).toBe('Recent Searches');
+        expect(dropdownHeader.children[1].textContent).toBe('Clear all');
+
+        fireEvent.click(dropdownHeader.children[1]);
+
         expect(dropdownList.children.length).toBe(1);
         expect(dropdownList.firstElementChild).toHaveClass(
             'noResults__wrapper'
