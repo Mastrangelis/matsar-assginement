@@ -16,6 +16,6 @@
 
 @media only screen and (max-width: 375px) {
     .container {
-        height: calc(100vh - 78px);
+        height: calc(100vh - 126px);
     }
 }

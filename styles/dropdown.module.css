@@ -95,6 +95,6 @@
 
 @media only screen and (max-width: 375px) {
     .dropdown__list {
-        height: calc(100% - 128px);
+        height: calc(100% - 176px);
     }
 }
