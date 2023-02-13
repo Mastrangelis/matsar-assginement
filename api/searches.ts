@@ -7,8 +7,8 @@ import axiosInstance from './axios';
  * @returns {object} the data returned from the server
  */
 const productSearch = async (q: string) => {
-    const { data } = await axiosInstance.post('/slug/', {
-        slug: '/api/kategori',
+    const { data } = await axiosInstance.post('/api/slug/', {
+        slug: '/kategori',
         query: {
             q
         }
