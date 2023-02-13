@@ -9,6 +9,7 @@
     padding-right: 3px;
     margin-bottom: 20px;
     padding-bottom: 3px;
+    overflow-x: hidden;
 }
 
 .product {
