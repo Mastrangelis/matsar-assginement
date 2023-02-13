@@ -11,4 +11,5 @@
 .container {
     background-color: var(--screen-bg);
     padding: 0 20px 0 20px;
+    height: calc(812px - 74px);
 }

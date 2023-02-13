@@ -5,6 +5,8 @@
     height: 812px;
     background: var(--screen-bg);
     border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Status bar */
@@ -42,26 +44,16 @@
 
 /* Home Indicator */
 .home__indicator {
-    position: absolute;
-    width: inherit;
     height: 34px;
-    bottom: 0;
-    cursor: pointer;
-    background-color: inherit;
-    border-radius: var(--border-radius);
-}
-
-.home__indicatorContainer {
-    position: absolute;
-    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .home__indicatorIndicator {
-    position: absolute;
-    left: 32.27%;
-    right: 32%;
-    top: 55.88%;
-    bottom: 29.41%;
+    cursor: pointer;
+    width: 134px;
+    height: 5px;
     border-radius: 2.5px;
-    background: var(--footer-indicator);
+    background-color: var(--footer-indicator);
 }

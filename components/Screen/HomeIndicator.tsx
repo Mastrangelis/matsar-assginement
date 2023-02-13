@@ -8,9 +8,7 @@ const HomeIndicator = () => {
 
     return (
         <div className={styles.home__indicator} onClick={onIndicatorClick}>
-            <div className={styles.home__indicatorContainer}>
-                <div className={styles.home__indicatorIndicator} />
-            </div>
+            <div className={styles.home__indicatorIndicator} />
         </div>
     );
 };
