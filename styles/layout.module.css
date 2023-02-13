@@ -13,3 +13,9 @@
     padding: 0 20px 0 20px;
     height: calc(812px - 74px);
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        height: calc(100vh - 78px);
+    }
+}

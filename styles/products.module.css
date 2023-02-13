@@ -8,7 +8,8 @@
     overflow-y: scroll;
     padding-right: 3px;
     margin-bottom: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
+    overflow-x: hidden;
 }
 
 .product {
@@ -78,4 +79,10 @@
     line-height: 19px;
     letter-spacing: -0.24px;
     color: var(--primary-color);
+}
+
+@media only screen and (max-width: 600px) {
+    .products {
+        height: calc(100% - 268px);
+    }
 }
