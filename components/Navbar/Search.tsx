@@ -24,6 +24,7 @@ const Search = ({ isMenuIcon }: SearchProps): ReactElement => {
 
     return (
         <div
+            data-testid="search"
             className={clsx({
                 [styles.navbar__search]: true,
                 [styles.navbar__searchFull]: !isMenuIcon
@@ -40,8 +41,10 @@ const Search = ({ isMenuIcon }: SearchProps): ReactElement => {
             </div>
 
             {/* Form input */}
-            <form onSubmit={handleSearchSubmit}>
+            <form aria-label="search-form" onSubmit={handleSearchSubmit}>
                 <input
+                    name="search-input"
+                    aria-label="search-input"
                     type="search"
                     placeholder="Search Product"
                     onChange={handleSearchInputChange}

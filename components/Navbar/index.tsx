@@ -7,7 +7,7 @@ const NavBar = () => {
     const [isMenuIcon, setIsMenuIcon] = useState<boolean>(false);
 
     return (
-        <div className={styles.navbar}>
+        <div data-testid="navbar" className={styles.navbar}>
             <div className={styles.navbar__container}>
                 <Menu isMenuIcon={isMenuIcon} setIsMenuIcon={setIsMenuIcon} />
                 <Search isMenuIcon={isMenuIcon} />

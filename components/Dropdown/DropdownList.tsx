@@ -58,6 +58,7 @@ const DropdownList = ({
     }
     return (
         <div
+            data-testid="dropdown-list"
             className={styles.dropdown__list}
             onMouseLeave={() => setCursor(-1)}
         >

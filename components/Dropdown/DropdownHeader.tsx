@@ -10,7 +10,7 @@ const DropdownHeader = ({ header, hasClear }: DropdownHeaderProps) => {
     const { removeAllSearches } = useSearchContext();
 
     return (
-        <div className={styles.dropdown__header}>
+        <div data-testid="dropdown-header" className={styles.dropdown__header}>
             <span>{header}</span>
             {hasClear && <span onClick={removeAllSearches}>Clear all</span>}
         </div>
