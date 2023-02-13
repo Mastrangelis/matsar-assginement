@@ -1,8 +1,10 @@
-import { BASE_URL } from '@/constants/url';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: BASE_URL, // Due to CORS issues, we proxy pass the request, check next.config.js for async writes()
+    baseURL:
+        process.env.NODE_ENV === 'development'
+            ? 'http://localhost:3000'
+            : 'https://matsar-assginement-zbfj-git-deployment-mastrangelis.vercel.app/',
     withCredentials: false
 });
 
