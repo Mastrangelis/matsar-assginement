@@ -1,6 +1,5 @@
 /* Screen */
 .screen {
-    position: relative;
     width: 375px;
     height: 812px;
     background: var(--screen-bg);
@@ -16,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px 0 21px;
+    padding: 5px 16px 0 21px;
 }
 
 .status__barTime {
@@ -56,4 +55,12 @@
     height: 5px;
     border-radius: 2.5px;
     background-color: var(--footer-indicator);
+}
+
+@media only screen and (max-width: 600px) {
+    .screen {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
 }
