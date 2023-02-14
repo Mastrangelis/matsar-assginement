@@ -2,7 +2,7 @@
 
 ## Deployment link from Vercel
 
-The application is deployed on vercel. You can visit it though this [link](https://matsar-assginement.vercel.app/search-results)
+The application is deployed on vercel. You can visit it though this [link](https://matsar-assginement-zbfj-git-main-mastrangelis.vercel.app/search-results)
 
 ## Technologies and Modules
 
