@@ -11,11 +11,11 @@
 .container {
     background-color: var(--screen-bg);
     padding: 0 20px 0 20px;
-    height: calc(812px - 74px);
+    height: calc(812px - 78px);
 }
 
 .container__mobile {
-    height: calc(100vh - 32px);
+    height: calc(100vh - 34px);
 }
 
 /* @media only screen and (max-width: 375px) {
