@@ -4,7 +4,7 @@ const axiosInstance = axios.create({
     baseURL:
         process.env.NODE_ENV === 'development'
             ? 'http://localhost:3000'
-            : 'https://matsar-assginement-zbfj-git-deployment-mastrangelis.vercel.app/',
+            : 'https://matsar-assginement-zbfj-git-main-mastrangelis.vercel.app/',
     withCredentials: false
 });
 
