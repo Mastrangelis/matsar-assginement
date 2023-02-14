@@ -9,13 +9,16 @@
     background-color: inherit;
 }
 
+.navbar__mobile {
+    justify-content: flex-start;
+}
+
 .navbar__container {
-    width: 335px;
+    width: 100%;
     height: 48px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 65px;
+    justify-content: space-between;
 }
 
 /* Navbar search */
@@ -40,6 +43,19 @@
     outline: none;
     border: 0;
     width: 100%;
+    background: transparent;
+    -webkit-appearance: textfield;
+    -webkit-appearance: none;
+    -webkit-background: transparent;
+    -webkit-border: 0;
+}
+
+.navbar__search input:-webkit-autofill,
+.navbar__search input:-webkit-autofill:hover,
+.navbar__search input:-webkit-autofill:focus,
+.navbar__search input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    transition-delay: 9999s;
 }
 
 /* Navbar Burger Icon and Menu */
