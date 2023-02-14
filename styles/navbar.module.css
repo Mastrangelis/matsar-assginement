@@ -42,6 +42,14 @@
     width: 100%;
 }
 
+input[type='search'] {
+    -webkit-appearance: textfield;
+}
+
+input[type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
 /* Navbar Burger Icon and Menu */
 /* Menu wrapper */
 .menu__wrap {
