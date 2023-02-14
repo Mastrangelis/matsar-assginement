@@ -4,6 +4,8 @@ import styles from '@/styles/products.module.css';
 import { IProduct } from '.';
 import Image from '../Image';
 import { LoadingComponent } from '../Skeleton';
+import clsx from 'clsx';
+import { isMobile } from 'react-device-detect';
 
 type ProductProps = {
     isLoading: boolean;
@@ -74,7 +76,12 @@ const Product = ({ product, isLoading }: ProductProps): ReactElement => {
     }
 
     return (
-        <div className={styles.product}>
+        <div
+            className={clsx({
+                [styles.product]: true,
+                [styles.product__mobile]: isMobile
+            })}
+        >
             <ProductImage />
             <ProductDetails />
         </div>

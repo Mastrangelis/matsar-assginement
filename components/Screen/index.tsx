@@ -4,6 +4,8 @@ import HomeIndicator from './HomeIndicator';
 import NavBar from '../Navbar';
 import StatusBar from './StatusBar';
 import Container from '../Layout/Container';
+import { isMobile } from 'react-device-detect';
+import clsx from 'clsx';
 
 type ScreenProps = {
     children?: ReactNode;
@@ -11,8 +13,13 @@ type ScreenProps = {
 
 const Screen = ({ children }: ScreenProps) => {
     return (
-        <div className={styles.screen}>
-            <StatusBar />
+        <div
+            className={clsx({
+                [styles.screen]: true,
+                [styles.screen__mobile]: isMobile
+            })}
+        >
+            {!isMobile && <StatusBar />}
             <Container>
                 <NavBar />
                 {children}

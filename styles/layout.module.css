@@ -14,8 +14,12 @@
     height: calc(812px - 74px);
 }
 
-@media only screen and (max-width: 375px) {
+.container__mobile {
+    height: calc(100vh - 32px);
+}
+
+/* @media only screen and (max-width: 375px) {
     .container {
         height: calc(100vh - 126px);
     }
-}
+} */
