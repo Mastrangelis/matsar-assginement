@@ -11,7 +11,7 @@
 .container {
     background-color: var(--screen-bg);
     padding: 0 20px 0 20px;
-    height: calc(812px - 78px);
+    height: calc(812px - 34px);
 }
 
 .container__mobile {
