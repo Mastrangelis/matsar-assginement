@@ -47,6 +47,14 @@
     -webkit-border: 0;
 }
 
+.navbar__search input:-webkit-autofill,
+.navbar__search input:-webkit-autofill:hover,
+.navbar__search input:-webkit-autofill:focus,
+.navbar__search input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    transition-delay: 9999s;
+}
+
 /* Navbar Burger Icon and Menu */
 /* Menu wrapper */
 .menu__wrap {
