@@ -40,8 +40,11 @@
     outline: none;
     border: 0;
     width: 100%;
+    background: transparent;
     -webkit-appearance: textfield;
     -webkit-appearance: none;
+    -webkit-background: transparent;
+    -webkit-border: 0;
 }
 
 /* Navbar Burger Icon and Menu */
